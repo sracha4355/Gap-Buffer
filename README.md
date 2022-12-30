@@ -4,45 +4,12 @@ While trying to understand this, place yourself in the shoe of someone typing an
 laptop is.
 
 An empty Gap Buffer with the gap start position at index 0 and end position at index 2:
-0 1 2 3 4 5 
-_ _ _ _ _ _ 
-^   ^
-Operation: insert('A'): we insert A at the start and the move the left index of the gap
-0 1 2 3 4 5 
-A _ _ _ _ _ 
-  ^ ^
-insert('B'): after inserting B, the start and end indexes are the same, meaning we have one more spot to insert
-0 1 2 3 4 5 
-A B _ _ _ _ 
-    ^
-    ^
-    
-insert('C) : now the start index is at 3, while the end index is at 2, meaning we need to resize the gap
-0 1 2 3 4 5    resize gap   0 1 2 3 4 5
-A B C _ _ _      ----->     A B C _ _ _
-    ^ ^                           ^   ^
-Gap is now resized, start index at 3, end index at 5
 
-If we moved the gap left, we copy the value before the start index and copy it to the right size
-0 1 2 3 4 5    move left again  0 1 2 3 4 5
-A B _ _ _ C       -------->     A _ _ _ B C
-    ^   ^                         ^   ^
-Now if we want to move right, the value to the right of the end index is copied to the left
-0 1 2 3 4 5 
-A B _ _ _ C 
-    ^   ^
-    
-Now if we want to call remove, for example you are typing and press the delete key, you will delete a character
-0 1 2 3 4 5 
-A _ _ _ _ C
-  ^     ^
-For simplicity, remove will delete the char to the left of the start position, but it will not adjust the end position,
-therefore the gap gets bigger.
+inserting into the buffer and resizing it 
+![image](https://user-images.githubusercontent.com/87020608/210035214-87bf4457-4054-487a-bcd4-b839fe91c78c.png)
 
-Now insert('B') again
-0 1 2 3 4 5   insert   0 1 2 3 4 5
-A _ _ _ _ C     --->   A B _ _ _ C 
-  ^     ^                  ^   ^
+How moving withing the buffer works
+![image](https://user-images.githubusercontent.com/87020608/210035173-198d2081-4d54-4b1e-ae68-c6c3bfa9d961.png)
 
 
 
