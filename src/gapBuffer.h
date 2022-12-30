@@ -21,7 +21,7 @@ using namespace std;
 
 class GapBuffer {
 	public:
-		friend class Tester;
+		friend class GapBufferTest;
 		GapBuffer();
 		GapBuffer(int, int);
 		~GapBuffer();
@@ -31,13 +31,20 @@ class GapBuffer {
 		int moveRight();
 		
 		void insert(char);
-		void remove();
+		int remove();
 		
+		// getters
+		int getStartPos();
+		int getEndPos();
+		int getBufferSize();
+		int getOccupied();
+		int getIndexOfLastElem();
+		int getGapSize();
 		
+
 	private:
 	
 		char * m_buffer; // buffer array
-		int m_cursor; // current pos of cursor might not end up using
 		
 		int m_gapSize; // size of gap
 		int m_gapStartPos; // left pos of gap buffer
@@ -48,18 +55,15 @@ class GapBuffer {
 		
 		
 		/* private helper functions*/
-		int getStartPos();
-		int getEndPos();
+		void dump();
 		void clearBuffer();
 		void resize();
 		void resizeBuffer();
-		void updateGapLength();
 		void updatePositionOfLastElement(string);
 		bool full();
-		
 		void printAttributeInfo();
-		void dump();
-		void dump2();
+
+
 		
 		
 };
