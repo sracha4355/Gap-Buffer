@@ -5,6 +5,8 @@ laptop is.
 
 An empty Gap Buffer with the gap start position at index 0 and end position at index 2:
 
+Images from geeksforgeeks
+
 inserting into the buffer and resizing it 
 ![image](https://user-images.githubusercontent.com/87020608/210035214-87bf4457-4054-487a-bcd4-b839fe91c78c.png)
 
